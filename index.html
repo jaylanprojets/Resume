@@ -2,18 +2,59 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Full-Screen Image</title>
+  <title>Full-Screen Image with Text</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
+      font-family: Arial, sans-serif;
       background: url('https://raw.githubusercontent.com/jaylanprojets/eeeeeeee/main/image/Black%20and%20Blue%20Modern%20AI%20and%20Machine%20Learning%20Presentation.jpg') no-repeat center center fixed;
       background-size: cover;
+      color: white;
+    }
+
+    .overlay {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      background-color: rgba(0, 0, 0, 0.5); /* Optional dark overlay */
+      padding-left: 60px;
+    }
+
+    .text-box {
+      max-width: 600px;
+      font-size: 2rem;
+      line-height: 2.6rem;
+    }
+
+    @media (max-width: 768px) {
+      .overlay {
+        justify-content: center;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .text-box {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
+
+  <div class="overlay">
+    <div class="text-box">
+      <p>Hi</p>
+      <p>I am <strong>REHAN</strong></p>
+      <p>I am an <strong>AI Automation Expert</strong></p>
+      <p>I help the People escaping from manual work and</p> 
+      <p>let you work at an <strong>extreme level with AI automation</strong>.</p> 
+    </div>
+  </div>
+
 </body>
 </html>
+

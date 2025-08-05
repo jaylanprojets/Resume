@@ -5,27 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rehan Shahid | AI Automation Expert</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@400;700&display=swap">
     <style>
         :root {
-            --primary: #2563eb;
-            --secondary: #0f172a;
+            --primary: #00c6ff;
+            --secondary: #0072ff;
             --accent: #8b5cf6;
-            --light: #f1f5f9;
+            --gold: #ffd700;
+            --dark: #0a0e17;
+            --darker: #050811;
+            --light: #e6f7ff;
             --gray: #94a3b8;
-            --success: #10b981;
+            --success: #00ff9d;
+            --glow: 0 0 25px rgba(0, 198, 255, 0.6);
+            --gold-glow: 0 0 20px rgba(255, 215, 0, 0.5);
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
         
         body {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
             color: var(--light);
             line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(0, 198, 255, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.1) 0%, transparent 40%);
+            z-index: -1;
+            pointer-events: none;
         }
         
         .container {
@@ -38,10 +61,10 @@
             padding: 1.5rem 0;
             position: sticky;
             top: 0;
-            background: rgba(15, 23, 42, 0.95);
+            background: rgba(10, 14, 23, 0.95);
             backdrop-filter: blur(10px);
             z-index: 100;
-            border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+            border-bottom: 1px solid rgba(0, 198, 255, 0.2);
         }
         
         nav {
@@ -54,16 +77,31 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 10px;
+        }
+        
+        .logo:hover {
+            background: rgba(0, 198, 255, 0.1);
+            box-shadow: var(--glow);
         }
         
         .logo i {
-            color: var(--accent);
+            color: var(--primary);
             font-size: 1.8rem;
+            animation: pulse 2s infinite;
         }
         
         .logo h1 {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         
         .nav-links {
@@ -77,10 +115,15 @@
             font-weight: 500;
             transition: all 0.3s ease;
             position: relative;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
         }
         
         .nav-links a:hover {
-            color: var(--accent);
+            color: var(--primary);
+            text-shadow: 0 0 10px var(--primary);
         }
         
         .nav-links a::after {
@@ -90,7 +133,7 @@
             height: 2px;
             bottom: -5px;
             left: 0;
-            background-color: var(--accent);
+            background: linear-gradient(to right, var(--primary), var(--accent));
             transition: width 0.3s ease;
         }
         
@@ -99,153 +142,217 @@
         }
         
         .hero {
-            padding: 5rem 0;
+            padding: 8rem 0 5rem;
             text-align: center;
-            background: radial-gradient(circle at top right, rgba(37, 99, 235, 0.15) 0%, transparent 30%);
+            position: relative;
+            overflow: hidden;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
         }
         
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(to right, #60a5fa, #8b5cf6);
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(to right, var(--primary), var(--accent), var(--gold));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            line-height: 1.2;
+            line-height: 1.1;
+            letter-spacing: 1px;
+            text-shadow: 0 0 20px rgba(0, 198, 255, 0.3);
         }
         
         .hero p {
-            font-size: 1.5rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
+            font-size: 1.8rem;
+            margin: 0 auto 3rem;
             color: var(--gray);
+            max-width: 700px;
+            font-weight: 300;
         }
         
         .tagline {
             display: inline-block;
-            background: rgba(139, 92, 246, 0.2);
-            color: var(--accent);
-            padding: 0.5rem 1rem;
+            background: rgba(0, 198, 255, 0.1);
+            color: var(--primary);
+            padding: 0.8rem 2rem;
             border-radius: 50px;
             font-weight: 600;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
+            animation: float 3s ease-in-out infinite;
+            border: 1px solid rgba(0, 198, 255, 0.3);
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 2px;
         }
         
         .btn {
             display: inline-block;
-            background: var(--primary);
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
             color: white;
-            padding: 0.8rem 2rem;
+            padding: 1rem 2.5rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
-            border: 2px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: none;
+            box-shadow: var(--glow);
         }
         
         .btn:hover {
-            background: transparent;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 198, 255, 0.4);
         }
         
         .btn-outline {
             background: transparent;
-            border: 2px solid var(--accent);
-            color: var(--accent);
-            margin-left: 1rem;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            margin-left: 1.5rem;
+            box-shadow: var(--gold-glow);
         }
         
         .btn-outline:hover {
-            background: var(--accent);
-            color: white;
+            background: rgba(255, 215, 0, 0.1);
         }
         
         section {
-            padding: 5rem 0;
+            padding: 6rem 0;
+            position: relative;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
+            position: relative;
         }
         
         .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
             position: relative;
             display: inline-block;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
         }
         
         .section-title h2::after {
             content: '';
             position: absolute;
-            width: 50%;
+            width: 60%;
             height: 4px;
             background: linear-gradient(to right, var(--primary), var(--accent));
-            bottom: -10px;
-            left: 25%;
+            bottom: -15px;
+            left: 20%;
             border-radius: 2px;
+            box-shadow: var(--glow);
         }
         
         .section-title p {
             max-width: 700px;
-            margin: 1rem auto 0;
+            margin: 2rem auto 0;
             color: var(--gray);
+            font-size: 1.2rem;
         }
         
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 2.5rem;
         }
         
         .skill-card {
-            background: rgba(30, 41, 59, 0.7);
-            border-radius: 15px;
-            padding: 2rem;
+            background: rgba(10, 14, 23, 0.7);
+            border-radius: 20px;
+            padding: 2.5rem;
             text-align: center;
-            transition: transform 0.3s ease;
-            border: 1px solid rgba(148, 163, 184, 0.1);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0, 198, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
         }
         
         .skill-card:hover {
-            transform: translateY(-10px);
-            background: rgba(30, 41, 59, 0.9);
-            border: 1px solid rgba(139, 92, 246, 0.3);
+            transform: translateY(-15px);
+            box-shadow: var(--glow);
+            border: 1px solid var(--primary);
+        }
+        
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
         }
         
         .skill-card i {
-            font-size: 3rem;
-            color: var(--accent);
+            font-size: 3.5rem;
+            color: var(--primary);
             margin-bottom: 1.5rem;
+            text-shadow: 0 0 15px rgba(0, 198, 255, 0.4);
         }
         
         .skill-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--light);
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
         }
         
         .skill-card p {
             color: var(--gray);
+            font-size: 1.1rem;
         }
         
-        .features-grid {
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
         }
         
-        .feature-card {
-            background: rgba(30, 41, 59, 0.7);
-            border-radius: 15px;
-            padding: 2rem;
+        .service-card {
+            background: rgba(10, 14, 23, 0.7);
+            border-radius: 20px;
+            padding: 2.5rem;
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(148, 163, 184, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
         }
         
-        .feature-card::before {
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 35px rgba(139, 92, 246, 0.3);
+            border: 1px solid var(--accent);
+        }
+        
+        .service-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -255,119 +362,283 @@
             background: linear-gradient(to bottom, var(--primary), var(--accent));
         }
         
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            color: var(--light);
         }
         
-        .feature-card h3 i {
+        .service-card h3 i {
             color: var(--accent);
+            font-size: 2rem;
+            text-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
         }
         
-        .feature-list {
+        .service-list {
             list-style: none;
-            margin-top: 1.5rem;
+            margin-top: 2rem;
         }
         
-        .feature-list li {
-            padding: 0.8rem 0;
+        .service-list li {
+            padding: 1rem 0;
             border-bottom: 1px solid rgba(148, 163, 184, 0.1);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
+            font-size: 1.1rem;
         }
         
-        .feature-list li:last-child {
+        .service-list li:last-child {
             border-bottom: none;
         }
         
-        .feature-list li i {
+        .service-list li i {
             color: var(--success);
+            min-width: 28px;
+            font-size: 1.3rem;
+            text-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
         }
         
         .workflow {
-            background: radial-gradient(circle at bottom left, rgba(37, 99, 235, 0.1) 0%, transparent 30%);
+            background: radial-gradient(circle at bottom left, rgba(0, 114, 255, 0.1) 0%, transparent 40%);
         }
         
-        .contact-info {
+        .contact-section {
+            position: relative;
+            padding: 8rem 0;
+        }
+        
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(10, 14, 23, 0.7);
+            border-radius: 25px;
+            padding: 4rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 198, 255, 0.3);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .contact-container:hover {
+            box-shadow: var(--glow), 0 20px 50px rgba(0, 0, 0, 0.4);
+            transform: translateY(-10px);
+        }
+        
+        .contact-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+        }
+        
+        .contact-info h3 {
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 2px;
+        }
+        
+        .contact-details {
             display: flex;
             flex-direction: column;
+            gap: 2.5rem;
             align-items: center;
-            gap: 1.5rem;
-            max-width: 600px;
-            margin: 0 auto;
-            background: rgba(30, 41, 59, 0.7);
-            padding: 3rem;
-            border-radius: 15px;
-            text-align: center;
-            border: 1px solid rgba(148, 163, 184, 0.1);
         }
         
-        .contact-info i {
-            font-size: 3rem;
-            color: var(--accent);
-        }
-        
-        .contact-links {
+        .contact-item {
             display: flex;
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-        
-        .contact-links a {
-            display: flex;
+            gap: 20px;
             align-items: center;
-            gap: 8px;
+        }
+        
+        .contact-item i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            min-width: 60px;
+            text-shadow: 0 0 15px rgba(0, 198, 255, 0.4);
+        }
+        
+        .contact-text h4 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+        
+        .contact-text p, .contact-text a {
             color: var(--light);
             text-decoration: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            background: rgba(139, 92, 246, 0.2);
             transition: all 0.3s ease;
+            font-size: 1.3rem;
         }
         
-        .contact-links a:hover {
-            background: var(--accent);
-            transform: translateY(-3px);
+        .contact-text a:hover {
+            color: var(--primary);
+            text-shadow: 0 0 10px var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.8rem;
+            margin-top: 4rem;
+            justify-content: center;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            background: rgba(0, 198, 255, 0.1);
+            border-radius: 50%;
+            color: var(--light);
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(0, 198, 255, 0.3);
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-8px);
+            box-shadow: var(--glow);
         }
         
         footer {
             text-align: center;
-            padding: 2rem 0;
-            border-top: 1px solid rgba(148, 163, 184, 0.1);
+            padding: 3rem 0;
+            border-top: 1px solid rgba(0, 198, 255, 0.2);
             color: var(--gray);
+            font-size: 1.1rem;
         }
         
         .highlight {
-            color: var(--accent);
+            color: var(--primary);
             font-weight: 600;
+            text-shadow: 0 0 10px rgba(0, 198, 255, 0.3);
         }
         
         .tool-list {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
+            gap: 1.2rem;
+            margin: 3rem 0;
         }
         
         .tool {
-            background: rgba(139, 92, 246, 0.2);
-            padding: 0.5rem 1.2rem;
+            background: rgba(0, 198, 255, 0.1);
+            padding: 0.8rem 1.5rem;
             border-radius: 50px;
-            font-size: 0.9rem;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(0, 198, 255, 0.2);
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+        
+        .tool:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: var(--glow);
+            color: var(--dark);
+        }
+        
+        .feature-section {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(10, 14, 23, 0.7);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(0, 198, 255, 0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .feature-section:hover {
+            box-shadow: var(--glow);
+            border: 1px solid var(--primary);
+            transform: translateY(-10px);
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 4rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-card {
+            background: rgba(10, 14, 23, 0.7);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            min-width: 240px;
+            border: 1px solid rgba(0, 198, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--glow);
+            border: 1px solid var(--primary);
+        }
+        
+        .stat-card i {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 15px rgba(0, 198, 255, 0.4);
+        }
+        
+        .stat-card .number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .stat-card p {
+            color: var(--gray);
+            font-size: 1.2rem;
         }
         
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
             
             .hero p {
-                font-size: 1.2rem;
+                font-size: 1.4rem;
             }
             
             .nav-links {
@@ -376,9 +647,95 @@
             
             .btn {
                 display: block;
-                margin: 1rem auto;
+                margin: 1.5rem auto;
                 width: 80%;
             }
+            
+            .contact-container {
+                padding: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .ai-ethics {
+            background: rgba(10, 14, 23, 0.7);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-top: 4rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .ai-ethics:hover {
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
+            border: 1px solid var(--accent);
+            transform: translateY(-10px);
+        }
+        
+        .ethics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+        
+        .ethics-item {
+            background: rgba(10, 14, 23, 0.7);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--accent);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .ethics-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
+        }
+        
+        .ethics-item h4 {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: var(--light);
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .ethics-item h4 i {
+            color: var(--accent);
+            font-size: 1.8rem;
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-2 {
+            animation: float 7s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+        
+        .floating-3 {
+            animation: float 5s ease-in-out infinite;
+            animation-delay: 2s;
         }
     </style>
 </head>
@@ -389,7 +746,7 @@
             <nav>
                 <div class="logo">
                     <i class="fas fa-robot"></i>
-                    <h1>Rehan<span class="highlight">AI</span></h1>
+                    <h1>RehanAI</h1>
                 </div>
                 <div class="nav-links">
                     <a href="#about">About</a>
@@ -404,12 +761,14 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <span class="tagline">AI Automation Expert</span>
-            <h1>Hi, I'm Rehan Shahid</h1>
-            <p>I help businesses automate their workflows using cutting-edge AI technology, freeing you from manual tasks and elevating your operations to the extreme level.</p>
-            <div>
-                <a href="#contact" class="btn">Get in Touch</a>
-                <a href="#services" class="btn btn-outline">View Services</a>
+            <div class="hero-content">
+                <span class="tagline">AI Automation Expert</span>
+                <h1>Hi, I'm Rehan Shahid</h1>
+                <p>I help businesses automate workflows using cutting-edge AI technology, freeing you from manual tasks and elevating operations to the extreme level.</p>
+                <div>
+                    <a href="#contact" class="btn floating">Get in Touch</a>
+                    <a href="#services" class="btn btn-outline floating-2">View Services</a>
+                </div>
             </div>
         </div>
     </section>
@@ -421,24 +780,44 @@
                 <h2>Introduction</h2>
                 <p>Transforming businesses with intelligent automation solutions</p>
             </div>
-            <div class="skill-card" style="max-width: 800px; margin: 0 auto; text-align: center;">
-                <p>I'm an AI Automation Expert helping businesses automate their workflows And Let him out From Manual Task.</p>
-                <p class="highlight" style="margin: 1.5rem 0;">I specialize in building smart systems that handle real-world tasks without human effort and 100% Accurate.</p>
-                <p>Whether you're a solo founder or a growing team — I help save hours of manual work, reduce missed leads, and close more clients using smart automation and AI workflows.</p>
+            <div class="feature-section">
+                <p>I'm an AI Automation Expert helping businesses automate their workflows using with like Social Media Platfoams, No-Code tools, OpenAI, Google Workspace, and WhatsApp Business API.</p>
+                <p class="highlight">I specialize in building smart systems that handle real-world tasks without human effort.</p>
+                <p>Whether you're a solo founder or a growing team — I help save hours of manual work,Increase revenue, reduce missed leads, and close more clients using smart automation and AI workflows.</p>
             </div>
             
             <div class="tool-list">
-                <div class="tool">Prompt Enginearing</div>
-                <div class="tool">Agentic Ai</div>
-                <div class="tool">OpenAI</div>
-                <div class="tool">System automation</div>
-                <div class="tool">Workflow Automation API</div>
+                <div class="tool floating">Social media Platfoams</div>
+                <div class="tool floating-2">No-Code</div>
+                <div class="tool floating-3">OpenAI</div>
+                <div class="tool floating">Google Workspace</div>
+                <div class="tool floating-2">WhatsApp Business API</div>
+                <div class="tool floating-3">Google Sheets</div>
+                <div class="tool floating">Google Calendar</div>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-card floating">
+                    <i class="fas fa-clock"></i>
+                    <div class="number">90%</div>
+                    <p>Time Saved</p>
+                </div>
+                <div class="stat-card floating-2">
+                    <i class="fas fa-chart-line"></i>
+                    <div class="number">75%</div>
+                    <p>Productivity Increase</p>
+                </div>
+                <div class="stat-card floating-3">
+                    <i class="fas fa-users"></i>
+                    <div class="number">200+</div>
+                    <p>Clients Served</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" style="background: rgba(15, 23, 42, 0.7);">
+    <section id="skills">
         <div class="container">
             <div class="section-title">
                 <h2>My Skills</h2>
@@ -447,12 +826,12 @@
             <div class="skills-grid">
                 <div class="skill-card">
                     <i class="fas fa-cogs"></i>
-                    <h3>AI Automation Consultant</h3>
+                    <h3>Ai Automation Consultant</h3>
                     <p>Comprehensive automation strategy development and implementation for business processes.</p>
                 </div>
                 <div class="skill-card">
                     <i class="fas fa-plug"></i>
-                    <h3>API Integration + Agentic Ai</h3>
+                    <h3>API Integration</h3>
                     <p>Seamless connection between diverse software systems and platforms.</p>
                 </div>
                 <div class="skill-card">
@@ -487,11 +866,11 @@
                 <p>Intelligent solutions for your business challenges</p>
             </div>
             
-            <div class="features-grid">
-                <div class="feature-card">
+            <div class="services-grid">
+                <div class="service-card">
                     <h3><i class="fas fa-robot"></i> AI Virtual Assistant</h3>
                     <p>Intelligent virtual assistants that handle customer interactions 24/7</p>
-                    <ul class="feature-list">
+                    <ul class="service-list">
                         <li><i class="fas fa-check-circle"></i> Booking appointments</li>
                         <li><i class="fas fa-check-circle"></i> Rescheduling meetings</li>
                         <li><i class="fas fa-check-circle"></i> Handling cancellations</li>
@@ -500,27 +879,63 @@
                     </ul>
                 </div>
                 
-                <div class="feature-card">
+                <div class="service-card">
                     <h3><i class="fas fa-comments"></i> AI Chatbots</h3>
                     <p>Revolutionizing customer support with intelligent chatbots</p>
-                    <ul class="feature-list">
+                    <ul class="service-list">
                         <li><i class="fas fa-check-circle"></i> 24/7 availability - no holidays, no breaks</li>
-                        <li><i class="fas fa-check-circle"></i> Instant responses improving customer satisfaction</li>
-                        <li><i class="fas fa-check-circle"></i> Saves time & money by reducing human support needs</li>
+                        <li><i class="fas fa-check-circle"></i> Instant responses improving satisfaction</li>
+                        <li><i class="fas fa-check-circle"></i> Saves time & money reducing human support needs</li>
                         <li><i class="fas fa-check-circle"></i> Handles multiple users simultaneously</li>
                         <li><i class="fas fa-check-circle"></i> Automates repetitive tasks like booking and FAQs</li>
                     </ul>
                 </div>
                 
-                <div class="feature-card">
+                <div class="service-card">
                     <h3><i class="fas fa-brain"></i> Autonomous Systems</h3>
                     <p>End-to-end workflow automation solutions</p>
-                    <ul class="feature-list">
+                    <ul class="service-list">
                         <li><i class="fas fa-check-circle"></i> AI-powered workflow automation</li>
                         <li><i class="fas fa-check-circle"></i> Connect tools like Google Sheets, GPT, and email</li>
                         <li><i class="fas fa-check-circle"></i> Streamline business processes</li>
                         <li><i class="fas fa-check-circle"></i> Automate appointment booking</li>
                         <li><i class="fas fa-check-circle"></i> Manage leads and reply to emails automatically</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3><i class="fas fa-tasks"></i> Workflow Automation</h3>
+                    <p>Streamline your business operations with automated workflows</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check-circle"></i> End-to-end process automation</li>
+                        <li><i class="fas fa-check-circle"></i> Custom workflow design</li>
+                        <li><i class="fas fa-check-circle"></i> Integration with existing tools</li>
+                        <li><i class="fas fa-check-circle"></i> Process optimization</li>
+                        <li><i class="fas fa-check-circle"></i> Real-time monitoring and reporting</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3><i class="fas fa-hashtag"></i> Social Media Automation</h3>
+                    <p>Automate your social media presence and engagement</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check-circle"></i> Automated content scheduling</li>
+                        <li><i class="fas fa-check-circle"></i> Social listening and monitoring</li>
+                        <li><i class="fas fa-check-circle"></i> Auto-responding to messages and comments</li>
+                        <li><i class="fas fa-check-circle"></i> Performance analytics</li>
+                        <li><i class="fas fa-check-circle"></i> Competitor analysis</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3><i class="fas fa-bullseye"></i> Lead Generation Automation</h3>
+                    <p>Automate your lead generation and conversion process</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check-circle"></i> Automated lead capture</li>
+                        <li><i class="fas fa-check-circle"></i> Lead scoring and qualification</li>
+                        <li><i class="fas fa-check-circle"></i> CRM integration</li>
+                        <li><i class="fas fa-check-circle"></i> Automated follow-up sequences</li>
+                        <li><i class="fas fa-check-circle"></i> Conversion tracking and analytics</li>
                     </ul>
                 </div>
             </div>
@@ -534,31 +949,82 @@
                 <h2>Workflow Automation</h2>
                 <p>Smart systems that handle real-world tasks without human effort</p>
             </div>
-            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <div class="feature-section">
                 <p>I design AI-powered workflow automations that connect tools like Google Sheets, GPT, email, and chatbots to streamline business processes. Whether it's booking appointments, managing leads, or replying to emails, my workflows run end-to-end without manual effort.</p>
-                <p class="highlight" style="margin: 2rem 0;">I'm building the future at the intersection of AI and automation — creating smart systems that help businesses grow faster, operate smarter, and work around the clock.</p>
+                <p class="highlight">I'm building the future at the intersection of AI and automation — creating smart systems that help businesses grow faster, operate smarter, and work around the clock.</p>
+            </div>
+            
+            <div class="ai-ethics">
+                <h3>Responsible AI: Balancing Innovation with Ethics</h3>
+                <div class="ethics-grid">
+                    <div class="ethics-item">
+                        <h4><i class="fas fa-balance-scale"></i> Fairness and Bias Mitigation</h4>
+                        <p>Ensuring AI systems treat all users fairly and without discrimination</p>
+                    </div>
+                    <div class="ethics-item">
+                        <h4><i class="fas fa-eye"></i> Transparency and Explainability</h4>
+                        <p>Making AI decisions understandable and accountable</p>
+                    </div>
+                    <div class="ethics-item">
+                        <h4><i class="fas fa-shield-alt"></i> Ethical Governance</h4>
+                        <p>Implementing frameworks for responsible AI development and deployment</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
+    <section id="contact" class="contact-section">
         <div class="container">
             <div class="section-title">
                 <h2>Contact Me</h2>
                 <p>Get in touch to transform your business with AI automation</p>
             </div>
+        </div>
+        
+        <div class="contact-container">
             <div class="contact-info">
-                <i class="fas fa-paper-plane"></i>
-                <h3>Let's work together</h3>
-                <p>Reach out to discuss how AI automation can benefit your business</p>
-                <div class="contact-links">
-                    <a href="mailto:mrehanali961@gmail.com">
-                        <i class="fas fa-envelope"></i> mrehanai96i@gmail.com
-                    </a>
-                    <a href="https://www.linkedin.com/in/rehan-shahid-58lb75347" target="_blank">
-                        <i class="fab fa-linkedin"></i> LinkedIn Profile
-                    </a>
+                <h3><i class="fas fa-paper-plane"></i> Contact Information</h3>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <a href="mailto:mrehanai96i@gmail.com">mrehanai96i@gmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <div class="contact-text">
+                            <h4>LinkedIn</h4>
+                            <a href="https://www.linkedin.com/in/rehan-shahid-58lb75347" target="_blank">Rehan Shahid</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <div class="contact-text">
+                            <h4>Location</h4>
+                            <p>Available for remote work worldwide</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="mailto:mrehanai96i@gmail.com" target="_blank" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/rehan-shahid-58lb75347" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" target="_blank" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" target="_blank" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -571,5 +1037,35 @@
             <p>Designed with ❤️ and 🤖</p>
         </div>
     </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Add animations to elements when they enter the viewport
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.skill-card, .service-card, .feature-section, .stat-card, .ethics-item').forEach(element => {
+            element.style.opacity = 0;
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+            observer.observe(element);
+        });
+    </script>
 </body>
 </html>

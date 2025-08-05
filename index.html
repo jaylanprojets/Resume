@@ -1,106 +1,91 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <title>Fixed Background with Side-by-Side Video</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Portfolio</title>
+
   <style>
-    .hero {
-      height: 100vh;
-      width: 100%;
-     background: url("https://raw.githubusercontent.com/jaylanprojets/eeeeeeee/refs/heads/main/image/Circuit-board-technology-background-central-computer-processors-cpu-concept-motherboard-digital-chip.jpg") center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 3rem;
-      text-shadow: 0 0 6px rgba(0,0,0,0.5);
-    }
-  </style>
-</head>
-<body>
-  <div class="hero">
-    <h1>Hello, I’m Rehan!</h1>
-  </div>
-</body>
-</html>
-[1:35 AM, 8/5/2025] Abrar: <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rehan - AI Automation Expert</title>
-  <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      color: #fff;
-      background-color: #000;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .hero {
-      height: 100vh;
-      width: 100%;
-      background: url("https://raw.githubusercontent.com/jaylanprojets/eeeeeeee/main/image/Circuit-board-technology-background-central-computer-processors-cpu-concept-motherboard-digital-chip.jpg") center/cover no-repeat;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .hero h1 {
-      font-size: 3.5rem;
-      text-shadow: 0 0 10px #00f7ff;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      font-size: 1.5rem;
-      text-shadow: 0 0 6px rgba(0,0,0,0.5);
-      margin-bottom: 30px;
-      max-width: 600px;
-    }
-
-    .glow-button {
-      padding: 15px 30px;
-      font-size: 1.2rem;
+    html, body {
+      height: 100%;
+      font-family: Arial, sans-serif;
       color: white;
-      background: #111;
-      border: 2px solid #00f7ff;
-      border-radius: 10px;
-      cursor: pointer;
-      position: relative;
-      z-index: 1;
-      transition: all 0.3s ease-in-out;
+      background: url('https://github.com/jaylanprojets/eeeeeeee/blob/main/image/Black%20and%20Blue%20Modern%20AI%20and%20Machine%20Learning%20Presentation.jpg') no-repeat center center fixed;
+      background-size: cover;
     }
 
-    .glow-button:hover {
-      box-shadow: 0 0 20px #00f7ff, 0 0 40px #00f7ff;
-      background: #00f7ff22;
-      transform: scale(1.05);
+    .top-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 50px;
+      min-height: 100vh;
+      background-color: rgba(0, 0, 0, 0.6); /* optional overlay for contrast */
+    }
+
+    .text-box {
+      max-width: 50%;
+      font-size: 2rem;
+      line-height: 2.8rem;
+    }
+
+    .video-box {
+      max-width: 45%;
+    }
+
+    .video-box video {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
     }
 
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.2rem;
+      .top-section {
+        flex-direction: column;
+        text-align: center;
       }
-      .hero p {
-        font-size: 1rem;
+
+      .text-box, .video-box {
+        max-width: 100%;
       }
-      .glow-button {
-        font-size: 1rem;
-        padding: 10px 20px;
+
+      .text-box {
+        margin-bottom: 20px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="hero">
-    <h1>Hello, I’m Rehan!</h1>
-    <p>I build powerful AI automation systems & futuristic voice assistants for modern businesses.</p>
-    <button class="glow-button" onclick="alert('Thank you for clicking!')">Click to Glow</button>
-  </div>
+
+  <section class="top-section">
+    <!-- Text on the left -->
+    <div class="text-box">
+      <p>Hi</p>
+      <p>I am <strong>REHAN</strong></p>
+      <p>I am an <strong>AI Automation Expert</strong></p>
+      <p>I help businesses escape manual work</p>
+      <p>and let you work at an <strong>extreme level</strong>.</p>
+    </div>
+
+    <!-- Video on the right -->
+    <div class="video-box">
+      <video autoplay muted loop playsinline>
+        <source src="https://github.com/jaylanprojets/eeeeeeee/blob/main/video/Untitled%20design%20(1).mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
+
+  <script>
+    console.log("Video loaded and layout ready.");
+  </script>
+
 </body>
 </html>
-

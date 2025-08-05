@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Full-Screen Image with Text</title>
+  <title>Full-Screen Image with Scrollable Text</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     html, body {
@@ -16,29 +16,42 @@
     }
 
     .overlay {
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      background-color: rgba(0, 0, 0, 0.5); /* Optional dark overlay */
-      padding-left: 60px;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 60px;
     }
 
     .text-box {
-      max-width: 600px;
+      max-width: 700px;
       font-size: 2rem;
-      line-height: 2.6rem;
+      line-height: 1.6rem;
+      margin-bottom: 40px;
+    }
+
+    video {
+      width: 500px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
     }
 
     @media (max-width: 768px) {
       .overlay {
-        justify-content: center;
         padding: 20px;
+        align-items: center;
         text-align: center;
       }
 
       .text-box {
         font-size: 1.5rem;
+        line-height: 1.8rem;
+      }
+
+      video {
+        width: 100%;
       }
     }
   </style>
@@ -49,12 +62,14 @@
     <div class="text-box">
       <p>Hi</p>
       <p>I am <strong>REHAN</strong></p>
-      <p>I am an <strong>AI Automation Expert</strong></p>
-      <p>I help the People escaping from manual work and</p> 
-      <p>let you work at an <strong>extreme level with AI automation</strong>.</p> 
+      <p>I am an <strong>AI Automation Expert</strong>, I help the people escape from manual tasks and let them work at an <strong>extreme level with AI automation</strong>.</p>  
     </div>
+
+    <video autoplay muted loop playsinline>
+      <source src="https://raw.githubusercontent.com/jaylanprojets/eeeeeeee/main/video/Untitled%20design%20(1).mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
   </div>
 
 </body>
 </html>
-
